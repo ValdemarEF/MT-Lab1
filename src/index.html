@@ -49,16 +49,21 @@
   
   <script>
     var player = videojs('my_video_1');
+	  
     function playVid() {
     player.play();
   } 
+	  
+    function pauseVid() {
+    vid.pause();
+}
   </script>
   
   <!--
   location for your player window
   -->
 	<button onclick="playVid()">Play</button>
-	<button type="button">Pause</button>
+	<button onclick="pauseVid()">Pause</button>
 	<button type="button">Stop</button>
 	<button type="button">Jump to 5 sec forward</button>
 	<button type="button">Jump to 5 sec backwards</button>	
