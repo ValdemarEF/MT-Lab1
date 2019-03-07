@@ -55,7 +55,6 @@
   
   <script>
     var player = videojs('my_video_1');
-    var vid = document.getElementById("my_video_1");
 	  
     function playVid() {
     player.play();
@@ -66,7 +65,7 @@
     }
 	
     function stopVid() { 
-    vid.currentTime(0);
+    player.currentTime(5);
     }
 	  
   </script>
