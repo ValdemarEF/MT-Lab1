@@ -57,6 +57,10 @@
     function pauseVid() {
     player.pause();
     }
+	  
+    function stopVid() {
+    player.stop();
+    }
   </script>
   
   <!--
@@ -64,7 +68,7 @@
   -->
 	<button onclick="playVid()">Play</button>
 	<button onclick="pauseVid()">Pause</button>
-	<button type="button">Stop</button>
+	<button onclick="stopVid()">Stop</button>
 	<button type="button">Jump to 5 sec forward</button>
 	<button type="button">Jump to 5 sec backwards</button>	
 	
