@@ -49,6 +49,7 @@
   <button onclick="stopVid()" type="button">Stop</button>
   <button onclick="frdVid()" type="button">Jump to 5 sec forward</button>
   <button onclick="bwrdVid()" type="button">Jump to 5 sec backwards</button>
+  <button onclick="LowSpeed()" type="button">Play slower</button>
 	
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
   <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
@@ -58,26 +59,29 @@
     var step = 5;
 	  
     function playVid() {
-    player.play();
+    	player.play();
     } 
 	  
     function pauseVid() {
-    player.pause();
+    	player.pause();
     }
 	
     function stopVid() { 
-    player.pause();
-    player.currentTime(0);
+    	player.pause();
+    	player.currentTime(0);
     }
 
     function frdVid() { 
-    player.currentTime(player.currentTime() + 5);
+    	player.currentTime(player.currentTime() + 5);
     }
 
     function bwrdVid() { 
-    player.currentTime(player.currentTime() - 5);
+    	player.currentTime(player.currentTime() - 5);
     }
-	  
+
+    function LowSpeed() { 
+    	player.playbackRate = 0.5;
+    }
   </script>
   
   <!--
