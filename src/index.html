@@ -49,8 +49,12 @@
   <button onclick="stopVid()" type="button">Stop</button>
   <button onclick="frdVid()" type="button">Jump to 5 sec forward</button>
   <button onclick="bwrdVid()" type="button">Jump to 5 sec backwards</button>
-  <button onclick="Faster()" type="button">x1.5</button>
+	
+  <h1>The Big Bunny</h1>
   <button onclick="Lower()" type="button">x0.5</button>
+  <button onclick="Normal()" type="button">normal</button>
+  <button onclick="Faster()" type="button">x1.5</button>
+
 	
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
   <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
@@ -79,7 +83,11 @@
     function bwrdVid() { 
     	player.currentTime(player.currentTime() - 5);
     }
-
+	  
+    function Normal() { 
+    	player.playbackRate(1);
+    }
+	  
     function Faster() { 
     	player.playbackRate(1.5);
     }
