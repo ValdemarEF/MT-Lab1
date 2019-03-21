@@ -18,3 +18,7 @@ Vaizdo transliacijų grotuvui sukurti galima rasti nemažai atviro kodo pavyzdž
   - Išbandyti sukurtą grotuvą mažiausiai dviejose naršyklėse ir README.md parašyti, kuriose naršyklėse išbandyta ir veikia.
   - Įgyvendinus papildomą funkcionalumą, galima gauti papildomų balų.
   - Laboratorinis darbas užskaitomas, jei rezultate įgyvendinti bent du reikalavimai iš sąrašo
+
+# Grotuvo veikimas
+  - Grotuvas veikia Mozilla Firefox Quantum Version 65.0.1 (64-bit) naršyklėje.
+  - Grotuvas veikia Chromium Version 73.0.3683.75 (64-bit) naršyklėje.
