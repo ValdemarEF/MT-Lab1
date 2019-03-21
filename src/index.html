@@ -40,59 +40,69 @@
 <body>
   <h1>The Big Bunny</h1>
 
+  <!-- Uzkrauname filmuka-->
   <video-js id="my_video_1" class="vjs-default-skin" controls preload="auto" width="640" height="268">
     <source src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
   </video-js>
   
-  <!-- Metodas "onclick" leidzia mums iskviesti funkcijas. Funkcijose yra aprasyti metodai, kurie paleidzia, sustabdo video. Situ metodu veikimas yra aprasyta biblotekoje.-->
-  <button onclick="playVid()" type="button">Play</button>
-  <button onclick="pauseVid()" type="button">Pause</button>
-  <button onclick="stopVid()" type="button">Stop</button>
-  <button onclick="frdVid()" type="button">Jump to 5 sec forward</button>
-  <button onclick="bwrdVid()" type="button">Jump to 5 sec backwards</button>
+  <!-- Metodas "onclick" leidzia mums iskviesti funkcijas.
+  Funkcijose yra aprasyti metodai, kurie paleidzia, sustabdo video.
+  Situ metodu veikimas yra aprasytas biblotekoje. -->
+  <button onclick="playVid()" type="button">Play</button> <!-- Mygtuka, kuris paleidzia video. -->
+  <button onclick="pauseVid()" type="button">Pause</button> <!-- Mygtuka, kuris padaro pauze. -->
+  <button onclick="stopVid()" type="button">Stop</button> <!-- Mygtuka, kuris sustabdo video. -->
+  <button onclick="frdVid()" type="button">Jump to 5 sec forward</button> <!-- Mygtuka, kuris persoka 5 sekundemis i prieki. -->
+  <button onclick="bwrdVid()" type="button">Jump to 5 sec backwards</button> <!-- Mygtuka, kuris persoka 5 sekundemis atgal. --->
 	
   <h2>Speed</h2>
-  <button onclick="Lower()" type="button">x0.5</button>
-  <button onclick="Normal()" type="button">normal</button>
-  <button onclick="Faster()" type="button">x1.5</button>
+  <button onclick="Lower()" type="button">x0.5</button> <!-- Suletintas greitis -->
+  <button onclick="Normal()" type="button">normal</button> <!-- Normalus grojimo greitis (x1). -->
+  <button onclick="Faster()" type="button">x1.5</button> <!-- Mygtukas, kuris pagreitina -->
 
 	
   <script src="https://unpkg.com/video.js/dist/video.js"></script>
   <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
   
   <script>
-    var player = videojs('my_video_1');
-    var step = 5;
-	  
+    var player = videojs('my_video_1'); //Sukuriame kintamaji, ir priskiriame jam musu zinomo filmuko id
+	
+    //Funkcija, kuri paleidzia filmuka. Metodo play() veikimas yra aprasytas bibliotekoje, jis skirtas paleisti filmukui
     function playVid() {
     	player.play();
     } 
-	  
+
+    //Funkcija, kuri padaro pauze
     function pauseVid() {
     	player.pause();
     }
-	
+    
+    //Funkcija, kuri sustabdo
     function stopVid() { 
     	player.pause();
     	player.currentTime(0);
     }
 
+    //Funkcija, kuri leidzia persokt i prieki
     function frdVid() { 
     	player.currentTime(player.currentTime() + 5);
     }
 
+    //Funkcija, kuri leidzia persokt atgal
     function bwrdVid() { 
     	player.currentTime(player.currentTime() - 5);
     }
-	  
+	
+    //Funkcija, kuri nustato normalu greiti
     function Normal() { 
     	player.playbackRate(1);
     }
-	  
+	
+    //Funkcija, kuri pagreitina
     function Faster() { 
     	player.playbackRate(1.5);
     }
-	  
+	
+    //Funkcija, kuri suletina
     function Lower() { 
     	player.playbackRate(0.5);
     }
