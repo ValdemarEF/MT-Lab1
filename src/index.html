@@ -16,21 +16,107 @@
 </head>
 <body>
   <h1>My first HLS player</h1>
+
   
   <!--
   location for your player window
   -->
+  <!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>videojs-contrib-hls embed</title>
   
-	<button type="button">Play</button>
-	<button type="button">Pause</button>
-	<button type="button">Stop</button>
-	<button type="button">Jump to 5 sec forward</button>
-	<button type="button">Jump to 5 sec backwards</button>	
+  <!--
+  Uses the latest versions of video.js and videojs-http-streaming.
+  To use specific versions, please change the URLs to the form:
+  <link href="https://unpkg.com/video.js@6.7.1/dist/video-js.css" rel="stylesheet">
+  <script src="https://unpkg.com/video.js@6.7.1/dist/video.js"></script>
+  <script src="https://unpkg.com/@videojs/http-streaming@0.9.0/dist/videojs-http-streaming.js"></script>
+  -->
+
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+</head>
+<body>
+  <h1>The Big Bunny</h1>
+
+  <!-- Uzkrauname filmuka-->
+  <video-js id="my_video_1" class="vjs-default-skin" controls preload="auto" width="640" height="268">
+    <source src="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL">
+  </video-js>
+  
+  <!-- Metodas "onclick" leidzia mums iskviesti funkcijas.
+  Funkcijose yra aprasyti metodai, kurie paleidzia, sustabdo video.
+  Situ metodu veikimas yra aprasytas biblotekoje. -->
+  <button onclick="playVid()" type="button">Play</button> <!-- Mygtuka, kuris paleidzia video. -->
+  <button onclick="pauseVid()" type="button">Pause</button> <!-- Mygtuka, kuris padaro pauze. -->
+  <button onclick="stopVid()" type="button">Stop</button> <!-- Mygtuka, kuris sustabdo video. -->
+  <button onclick="frdVid()" type="button">Jump to 5 sec forward</button> <!-- Mygtuka, kuris persoka 5 sekundemis i prieki. -->
+  <button onclick="bwrdVid()" type="button">Jump to 5 sec backwards</button> <!-- Mygtuka, kuris persoka 5 sekundemis atgal. --->
 	
-	<p>Playlist</p>
+  <h2>Speed</h2>
+  <button onclick="Lower()" type="button">x0.5</button> <!-- Suletintas greitis -->
+  <button onclick="Normal()" type="button">normal</button> <!-- Normalus grojimo greitis (x1). -->
+  <button onclick="Faster()" type="button">x1.5</button> <!-- Mygtukas, kuris pagreitina -->
+
 	
-	<input type="text" name="url1" size="100" value="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8"><button type="button">Load</button><br>
-	<input type="text" name="url2" size="100" value="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8"><button type="button">Load</button><br>
-	<button type="button">Shuffle</button>
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+  
+  <script>
+    var player = videojs('my_video_1'); //Sukuriame kintamaji, ir priskiriame jam musu zinomo filmuko id
+	
+    //Funkcija, kuri paleidzia filmuka. Metodo play() veikimas yra aprasytas bibliotekoje, jis skirtas paleisti filmukui
+    function playVid() {
+    	player.play();
+    } 
+
+    //Funkcija, kuri padaro pauze
+    function pauseVid() {
+    	player.pause();
+    }
+    
+    //Funkcija, kuri sustabdo
+    function stopVid() { 
+    	player.pause();
+    	player.currentTime(0);
+    }
+
+    //Funkcija, kuri leidzia persokt i prieki
+    function frdVid() { 
+    	player.currentTime(player.currentTime() + 5);
+    }
+
+    //Funkcija, kuri leidzia persokt atgal
+    function bwrdVid() { 
+    	player.currentTime(player.currentTime() - 5);
+    }
+	
+    //Funkcija, kuri nustato normalu greiti
+    function Normal() { 
+    	player.playbackRate(1);
+    }
+	
+    //Funkcija, kuri pagreitina
+    function Faster() { 
+    	player.playbackRate(1.5);
+    }
+	
+    //Funkcija, kuri suletina
+    function Lower() { 
+    	player.playbackRate(0.5);
+    }
+	  
+  </script>
+  
+  <!--
+  location for your player window
+  -->	
+  <h2>Playlist</h2>
+  <input type="text" name="url1" size="100" id="myText" value="https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8">
+  <button id="btn1" onclick="Load(this.id)" type="button">Load</button><br>
+  <input type="text" name="url2" size="100" id="myText2" value="https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8">
+  <button id="btn2" onclick="Load(this.id)" type="button">Load</button><br>	
+
 </body>
 </html>
